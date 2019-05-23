@@ -71,3 +71,8 @@ ul.theList {
   background-color: pink;
   cursor: pointer;
 }
+
+.simple {
+  padding: 10px;
+  font-size: 12px;    
+}

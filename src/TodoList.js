@@ -1,5 +1,22 @@
 import React, { Component } from 'react'
 class TodoList extends Component {
+
+    /**
+     * props input
+     * 
+        addItem={this.addItem}
+        inputElement={this.inputElement}
+        handleInput={this.handleInput}
+        currentItem={this.state.currentItem}
+
+        =>
+        this.props.addItem
+        this.props.inputElement
+        this.props.handleInput
+        this.props.currentItem
+
+    */
+
     componentDidUpdate() {
         this.props.inputElement.current.focus()
     }

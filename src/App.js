@@ -3,15 +3,29 @@ import './App.css';
 import './TodoList';
 import TodoList from './TodoList';
 import TodoItems from './TodoItems';
+import Simple from './Simple';
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
       items: [],
-      currentItem: { text: 'abcd', key: '' },
+      currentItem: { text: 'this is item', key: '' },
     }
     this.inputElement = React.createRef();
+  }
+
+  // simple testing of consuming the rest api
+  componentDidMount() {
+    fetch('http://jsonplaceholder.typicode.com/users')
+    .then(res => res.json())
+    .then((data) => {
+      //console.log(data)
+      this.setState({ contacts: data })
+      console.log(this.state.contacts)
+    })
+    .catch(console.log)    
+    
   }
 
   deleteItem = key => {
@@ -59,13 +73,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Simple />
         <TodoList
           addItem={this.addItem}
           inputElement={this.inputElement}
           handleInput={this.handleInput}
           currentItem={this.state.currentItem}
         />
-        <TodoItems entries={this.state.items} deleteItem={this.deleteItem} />
+        <TodoItems entries={this.state.items} deleteItem={this.deleteItem} />        
       </div>
     )
   }

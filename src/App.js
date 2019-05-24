@@ -15,14 +15,34 @@ class App extends Component {
     this.inputElement = React.createRef();
   }
 
-  // simple testing of consuming the rest api
-  componentDidMount() {
+  componentWillMount() {
+
+    console.log('compoent will mount')
+    // simple testing of consuming the rest api
     fetch('http://jsonplaceholder.typicode.com/users')
     .then(res => res.json())
     .then((data) => {
       //console.log(data)
       this.setState({ contacts: data })
-      console.log(this.state.contacts)
+      //console.log(this.state.contacts)
+    })
+    .catch(console.log)    
+  
+
+  }
+
+  // logic that will be processed when the component is created.
+  componentDidMount() {
+
+    console.log('component did mount')
+
+    // simple testing of consuming the rest api
+    fetch('http://jsonplaceholder.typicode.com/users')
+    .then(res => res.json())
+    .then((data) => {
+      //console.log(data)
+      this.setState({ contacts: data })
+      //console.log(this.state.contacts)
     })
     .catch(console.log)    
     
@@ -71,6 +91,19 @@ class App extends Component {
 
 
   render() {
+
+    let contactsItem = ''
+
+    if(this.state.contacts) {
+      //this.state.contacts.map(x=> console.log(x))
+      contactsItem = this.state.contacts.map((x,i) => {
+        return <div key={i}>{x.name}</div>
+      }) 
+    }
+
+    //console.log(this.state.contacts);
+    //let contactsItem = 'a';
+
     return (
       <div className="App">
         <Simple />
@@ -80,7 +113,8 @@ class App extends Component {
           handleInput={this.handleInput}
           currentItem={this.state.currentItem}
         />
-        <TodoItems entries={this.state.items} deleteItem={this.deleteItem} />        
+        <TodoItems entries={this.state.items} deleteItem={this.deleteItem} />                
+        {contactsItem}
       </div>
     )
   }

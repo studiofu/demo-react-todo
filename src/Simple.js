@@ -8,11 +8,18 @@ class Simple extends Component {
         this.state = {
             requiredStatus: '[status]',
         }
+
+        this.onClick = this.onClick.bind(this);
+    }
+
+    onClick(e) {
+        console.log(e)
+        this.setState({requiredStatus: this.state.requiredStatus + '>' })
     }
 
     render() {
         return (
-            <div className='simple'>this is simple... {this.state.requiredStatus}</div>
+            <div className='simple' onClick={e => this.onClick(e)}>this is simple... {this.state.requiredStatus}</div>
         )
     }
 }

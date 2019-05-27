@@ -9,6 +9,7 @@ class Simple extends Component {
             requiredStatus: '[status]',
         }
 
+        // bind this to the onClick function scope
         this.onClick = this.onClick.bind(this);
     }
 
@@ -19,7 +20,9 @@ class Simple extends Component {
 
     render() {
         return (
-            <div className='simple' onClick={e => this.onClick(e)}>this is simple... {this.state.requiredStatus}</div>
+            <div className='simple' onClick={this.onClick}>
+                this is simple... {this.state.requiredStatus}
+            </div>
         )
     }
 }

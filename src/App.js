@@ -4,6 +4,7 @@ import './TodoList';
 import TodoList from './TodoList';
 import TodoItems from './TodoItems';
 import Simple from './Simple';
+import Menu from './Menu';
 
 class App extends Component {
   constructor() {
@@ -74,7 +75,7 @@ class App extends Component {
 
     e.preventDefault();
 
-    console.log('Hello Add Item')
+    console.log('Add Item')
 
     const newItem = this.state.currentItem;
 
@@ -106,6 +107,7 @@ class App extends Component {
 
     return (
       <div className="App">
+        <Menu />
         <Simple />
         <TodoList
           addItem={this.addItem}

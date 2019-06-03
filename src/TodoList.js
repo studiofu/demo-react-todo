@@ -17,8 +17,13 @@ class TodoList extends Component {
 
     */
 
+    referInput = React.createRef();
+
     componentDidUpdate() {
-        this.props.inputElement.current.focus()
+        //this.props.inputElement.current.focus()
+        //if(this.referInput != null) 
+            this.referInput.current.focus()
+
     }
 
     render() {
@@ -28,7 +33,7 @@ class TodoList extends Component {
                     <form onSubmit={this.props.addItem}>
                         <input
                             placeholder="Task"
-                            ref={this.props.inputElement}
+                            ref={this.referInput}
                             value={this.props.currentItem.text}
                             onChange={this.props.handleInput}
                         />

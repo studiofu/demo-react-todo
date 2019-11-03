@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 class TodoItems extends Component {
 
-  createTasks = item => {
+  createTasks = (item) => {
     return (
       <li key={item.key} onClick={() => this.props.deleteItem(item.key)}>
         {item.text}
@@ -12,7 +12,7 @@ class TodoItems extends Component {
 
   render() {
     const todoEntries = this.props.entries
-    const listItems = todoEntries.map(x => this.createTasks(x))
+    const listItems = todoEntries.map(item => this.createTasks(item))
     return <ul className="theList">{listItems}</ul>
   }
 

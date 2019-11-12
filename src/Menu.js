@@ -19,7 +19,7 @@ class Menu extends Component {
         let result = this.menus.map((v,i) => {
             return (
                 <div key={i}>                    
-                    <CustomLink label={v}/>
+                    <CustomLink label={v} />
                 </div>
             )
         })

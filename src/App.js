@@ -11,8 +11,10 @@ class App extends Component {
 
   constructor() {
     super(); // remember to call super
+    
+    // set the state
     this.state = {
-      items: [],
+      items: [], // items
       currentItem: { text: 'this is item', key: '' },
       contacts: []
     }
@@ -61,10 +63,10 @@ class App extends Component {
     // the current textbox value
     const itemText = e.target.value
     
-    const currentItem = { text: itemText, key: Date.now() }
+    const currentItemx = { text: itemText, key: Date.now() }
 
     this.setState({
-      currentItem,
+      currentItem: currentItemx
     })
   }
 
@@ -102,12 +104,13 @@ class App extends Component {
     if(this.state.contacts) {
       contactsItem = this.state.contacts.map((x,i) => {
         return (
-          <div key={i} className="contacts" onClick={()=>{this.choosePerson(x.name)}} >
+         <div key={i} className="contacts" onClick={(e)=>{this.choosePerson(x.name)}} >
+            
             {x.name}
           </div>
         )
       }) 
-    //}
+    }
 
     //console.log(this.state.contacts);
     //let contactsItem = 'a';

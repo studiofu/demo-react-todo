@@ -1,22 +1,6 @@
 import React, { Component } from 'react'
 class TodoList extends Component {
 
-    /**
-     * props input from parents
-     * 
-        addItem={this.addItem}
-        inputElement={this.inputElement}
-        handleInput={this.handleInput}
-        currentItem={this.state.currentItem}
-
-        =>
-        this.props.addItem
-        this.props.inputElement
-        this.props.handleInput
-        this.props.currentItem
-
-    */
-
     //referInput = React.createRef();
 
     componentDidUpdate() {

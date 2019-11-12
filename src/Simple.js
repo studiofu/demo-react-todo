@@ -16,6 +16,8 @@ class Simple extends Component {
     onClick(e) {
         console.log(e)
         this.setState({requiredStatus: this.state.requiredStatus + '>' })
+
+        this.props.strongChange();
     }
 
     render() {

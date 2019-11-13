@@ -10,7 +10,8 @@ import Force from './Force';
 class App extends Component {
 
   constructor() {
-    super(); // remember to call super
+    // remember to call super
+    super(); 
     
     // set the state
     this.state = {
@@ -22,6 +23,7 @@ class App extends Component {
     // create an input reference that will be used to 
     // refer to the input element created in another class
     this.inputElement = React.createRef();
+
   }
 
   componentWillMount() { // execute will mount and then did mount

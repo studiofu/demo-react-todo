@@ -12,11 +12,12 @@ class TodoList extends Component {
     }
 
     // the function is passed through the properties
+    // pass the addItem function from parent to TodoList
     render() {
         return (
             <div className="todoListMain">
                 <div className="header">
-                    <form onSubmit={this.props.addItem}>
+                    <form onSubmit={this.props.addItem}> 
                         <input
                             placeholder="Task"
                             //ref={this.referInput}
